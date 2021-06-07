@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.Landing"
+
+    android:background="@color/zorionGray"
+
+    >
+
+    <ScrollView
+
+        android:id="@+id/landingScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+
+            android:id="@+id/landingLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:layout_gravity="center_vertical"
+
+            >
+
+            <!-- Zorion logo display using '@drawable/landing_logo.xml' and '@font/bubbler' for design -->
+
+            <TextView
+
+                android:id="@+id/landingLogoTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_horizontal"
+
+                android:text="@string/app_name"
+                android:textSize="64sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubbler"
+
+                android:background="@drawable/landing_logo"
+
+                />
+
+            <!-- Sign in button using '@drawable/landing_buttons' and '@font/asap' for design -->
+
+            <Button
+
+                android:id="@+id/landingSignInButton"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+
+                android:layout_gravity="center_horizontal"
+
+                android:text="@string/zorion_sign_in"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/asap"
+
+                android:background="@drawable/landing_buttons"
+
+                />
+
+            <!-- Sign up button using '@drawable/landing_buttons' and '@font/asap' for design -->
+
+            <Button
+
+                android:id="@+id/landingSignUpButton"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+
+                android:layout_gravity="center_horizontal"
+
+                android:text="@string/zorion_sign_up"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/asap"
+
+                android:background="@drawable/landing_buttons"
+
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

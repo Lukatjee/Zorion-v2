@@ -1,0 +1,2 @@
+rootProject.name = "Zorion"
+include ':app'

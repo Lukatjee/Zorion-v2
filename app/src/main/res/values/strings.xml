@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="app_name"><b>Zorion</b></string>
+
+    <!-- Authentication button and title strings -->
+
+    <string name="zorion_sign_in">Sign In</string>
+    <string name="zorion_sign_up">Sign Up</string>
+
+    <!-- Authentication input field hint strings -->
+
+    <string name="zorion_username">Username</string>
+    <string name="zorion_e_mail">E-mail</string>
+    <string name="zorion_password">Password</string>
+
+    <!-- Authentication messages -->
+
+    <string name="zorion_invalid_credentials">Sorry, but the credentials you entered are invalid.</string>
+
+    <string name="zorion_invalid_username">Sorry, but the username you entered is invalid.</string>
+    <string name="zorion_invalid_email">Sorry, but the email you entered is invalid.</string>
+    <string name="zorion_invalid_password">Sorry, but the password you entered is invalid.</string>
+
+    <string name="zorion_successful_sign_up">Successfully created a new account, redirecting you to the sign in page.</string>
+    <string name="zorion_weak_password_exception">Sorry, but the entered password is not strong enough.</string>
+    <string name="zorion_user_collision_exception">This user already exists.</string>
+
+    <string name="zorion_network_exception">Couldn\'t connect to the servers, try again later.</string>
+
+</resources>

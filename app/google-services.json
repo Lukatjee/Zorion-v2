@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1011832460402",
+    "project_id": "zorion-9bec0",
+    "storage_bucket": "zorion-9bec0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011832460402:android:776e6d9db5e4fb3b21deeb",
+        "android_client_info": {
+          "package_name": "eu.lukatjee.zorion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011832460402-pnel0fpdu29js80kr6b8cl89nh0vi117.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk5Lv8DVMM6CtfodciHyJ4h0IjgIC3pGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011832460402-pnel0fpdu29js80kr6b8cl89nh0vi117.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
