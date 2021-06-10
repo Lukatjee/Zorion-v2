@@ -110,20 +110,46 @@
 
             <!-- Sign in button using '@drawable/authentication_button' and '@drawable/authentication_arrow' for design -->
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
 
-                android:id="@+id/signInCircleImageView"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:padding="8dp"
 
-                android:layout_gravity="center_horizontal"
+                >
 
-                android:src="@drawable/authentication_arrow"
-                android:background="@drawable/authentication_button"
+                <de.hdodenhof.circleimageview.CircleImageView
 
-                />
+                    android:id="@+id/signInButtonCircleImageView"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="10dp"
+
+                    android:background="@drawable/authentication_button"
+
+                    android:padding="8dp"
+                    android:src="@drawable/authentication_arrow"
+
+                    />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+
+                    android:id="@+id/forgotPasswordButtonCircleImageView"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+
+                    android:background="@drawable/authentication_button"
+
+                    android:padding="12dp"
+                    android:src="@drawable/authentication_reset_password"
+
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 

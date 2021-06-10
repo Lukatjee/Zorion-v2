@@ -154,21 +154,6 @@
 
                 />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-
-                android:id="@+id/signUpCircleImageView"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-
-                android:background="@drawable/authentication_button"
-
-                android:padding="8dp"
-                android:src="@drawable/authentication_loading"
-
-                android:visibility="gone" />
-
         </LinearLayout>
 
     </ScrollView>

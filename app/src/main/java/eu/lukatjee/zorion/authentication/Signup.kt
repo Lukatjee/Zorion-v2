@@ -25,8 +25,9 @@ class Signup : AppCompatActivity(), View.OnClickListener {
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var intentExtras : Bundle
 
+    // Buttons
+
     private lateinit var signUpButtonCircleImageView : CircleImageView
-    private lateinit var signUpProgressBar : CircleImageView
 
     // Input fields
 
@@ -83,7 +84,6 @@ class Signup : AppCompatActivity(), View.OnClickListener {
         intentExtras = intent.extras!!
 
         signUpButtonCircleImageView = findViewById(R.id.signUpButtonCircleImageView)
-        signUpProgressBar = findViewById(R.id.signUpCircleImageView)
 
         signUpUsernameEditText = findViewById(R.id.signUpUsernameEditText)
         signUpEmailEditText = findViewById(R.id.signUpEmailEditText)
@@ -228,15 +228,14 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                  */
 
-                signUpProgressBar.visibility = View.VISIBLE
-                signUpButtonCircleImageView.visibility = View.GONE
+                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
+                signUpButtonCircleImageView.isEnabled = false
 
                 firebaseAuth.createUserWithEmailAndPassword(stringInputEmail, stringInputPassword).addOnCompleteListener { createAccountTask ->
 
                     if (createAccountTask.isSuccessful) {
 
-                        signUpProgressBar.visibility = View.GONE
-                        signUpButtonCircleImageView.visibility = View.VISIBLE
+                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_arrow)
 
                         Toast.makeText(this, messageSuccessfulSignUp, Toast.LENGTH_SHORT).show()
 
@@ -252,15 +251,13 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                          */
 
-                        signUpProgressBar.visibility = View.VISIBLE
-                        signUpButtonCircleImageView.visibility = View.GONE
+                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
 
                         firebaseAuth.signInWithEmailAndPassword(stringInputEmail, stringInputPassword).addOnCompleteListener { signInTask ->
 
                             if (signInTask.isSuccessful) {
 
-                                signUpProgressBar.visibility = View.GONE
-                                signUpButtonCircleImageView.visibility = View.VISIBLE
+                                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_arrow)
 
                                 val currentlySignedInUser = firebaseAuth.currentUser!!
                                 val profileChangeRequest = UserProfileChangeRequest.Builder().setDisplayName(stringInputUsername).build()
@@ -277,8 +274,7 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                                 */
 
-                                signUpProgressBar.visibility = View.VISIBLE
-                                signUpButtonCircleImageView.visibility = View.GONE
+                                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
 
                                 currentlySignedInUser.updateProfile(profileChangeRequest).addOnCompleteListener { updateProfileTask ->
 
@@ -286,8 +282,7 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                                     if (updateProfileTask.isSuccessful) {
 
-                                        signUpProgressBar.visibility = View.GONE
-                                        signUpButtonCircleImageView.visibility = View.VISIBLE
+                                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_arrow)
 
                                         val authenticationSignIn = Intent(this, Signin::class.java)
 
@@ -298,8 +293,8 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                                     } else {
 
-                                        signUpProgressBar.visibility = View.GONE
-                                        signUpButtonCircleImageView.visibility = View.VISIBLE
+                                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
+                                        signUpButtonCircleImageView.isEnabled = true
 
                                         try {
 
@@ -317,8 +312,8 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                             } else {
 
-                                signUpProgressBar.visibility = View.GONE
-                                signUpButtonCircleImageView.visibility = View.VISIBLE
+                                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
+                                signUpButtonCircleImageView.isEnabled = true
 
                                 try {
 
@@ -336,8 +331,8 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                     } else {
 
-                        signUpProgressBar.visibility = View.GONE
-                        signUpButtonCircleImageView.visibility = View.VISIBLE
+                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
+                        signUpButtonCircleImageView.isEnabled = true
 
                         try {
 
