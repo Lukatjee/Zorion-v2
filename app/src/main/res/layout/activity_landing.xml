@@ -30,8 +30,6 @@
 
             >
 
-            <!-- Zorion logo display using '@drawable/landing_logo.xml' and '@font/bubbler' for design -->
-
             <TextView
 
                 android:id="@+id/landingLogoTextView"
@@ -46,11 +44,9 @@
                 android:textColor="@color/white"
                 android:fontFamily="@font/bubbler"
 
-                android:background="@drawable/landing_logo"
+                android:background="@drawable/landing_model_logo"
 
                 />
-
-            <!-- Sign in button using '@drawable/landing_buttons' and '@font/asap' for design -->
 
             <Button
 
@@ -61,16 +57,14 @@
 
                 android:layout_gravity="center_horizontal"
 
-                android:text="@string/zorion_sign_in"
+                android:text="@string/authentication_sign_in"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/asap"
 
-                android:background="@drawable/landing_buttons"
+                android:background="@drawable/landing_model_buttons"
 
                 />
-
-            <!-- Sign up button using '@drawable/landing_buttons' and '@font/asap' for design -->
 
             <Button
 
@@ -81,12 +75,12 @@
 
                 android:layout_gravity="center_horizontal"
 
-                android:text="@string/zorion_sign_up"
+                android:text="@string/authentication_sign_up"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/asap"
 
-                android:background="@drawable/landing_buttons"
+                android:background="@drawable/landing_model_buttons"
 
                 />
 

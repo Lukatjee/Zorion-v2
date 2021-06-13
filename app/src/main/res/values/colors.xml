@@ -12,11 +12,14 @@
 
     <color name="zorionAqua">#89d4cf</color>
     <color name="zorionDarkAqua">#6e45e1</color>
+    <color name="zorionLightAqua">#422987</color>
 
     <!-- Shades of gray -->
 
     <color name="zorionGray">#191919</color>
+    <color name="zorionGrayer">#1c1c1c</color>
     <color name="zorionDarkGray">#111111</color>
+    <color name="zorionDarkerGray">#070707</color>
     <color name="zorionLightGray">#161616</color>
     <color name="zorionLighterGray">#808080</color>
     <color name="zorionLightestGray">#2f2f2f</color>

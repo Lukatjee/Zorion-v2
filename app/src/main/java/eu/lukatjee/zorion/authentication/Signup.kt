@@ -2,10 +2,6 @@ package eu.lukatjee.zorion.authentication
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Layout
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.AlignmentSpan
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
@@ -24,56 +20,11 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var intentExtras : Bundle
-
-    // Buttons
-
     private lateinit var signUpButtonCircleImageView : CircleImageView
-
-    // Input fields
-
     private lateinit var signUpUsernameEditText : EditText
     private lateinit var signUpEmailEditText : EditText
     private lateinit var signUpPasswordEditText : EditText
-
-    // Invalid credentials message
-
-    private lateinit var messageInvalidCredentialsRaw : String
-    private lateinit var messageInvalidCredentials : SpannableString
-
-    // Invalid username message
-
-    private lateinit var messageInvalidUsernameRaw : String
-    private lateinit var messageInvalidUsername : SpannableString
-
-    // Invalid email message
-
-    private lateinit var messageInvalidEmailRaw : String
-    private lateinit var messageInvalidEmail : SpannableString
-
-    // Invalid password message
-
-    private lateinit var messageInvalidPasswordRaw : String
-    private lateinit var messageInvalidPassword : SpannableString
-
-    // Successful sign up message
-
-    private lateinit var messageSuccessfulSignUpRaw : String
-    private lateinit var messageSuccessfulSignUp : SpannableString
-
-    // Weak password exception message
-
-    private lateinit var messageWeakPasswordExceptionRaw : String
-    private lateinit var messageWeakPasswordException : SpannableString
-
-    // User collision exception message
-
-    private lateinit var messageUserCollisionExceptionRaw : String
-    private lateinit var messageUserCollisionException : SpannableString
-
-    // Network exception message
-
-    private lateinit var messageNetworkExceptionRaw : String
-    private lateinit var messageNetworkException : SpannableString
+    private lateinit var messageStrings : List<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -84,72 +35,44 @@ class Signup : AppCompatActivity(), View.OnClickListener {
         intentExtras = intent.extras!!
 
         signUpButtonCircleImageView = findViewById(R.id.signUpButtonCircleImageView)
-
         signUpUsernameEditText = findViewById(R.id.signUpUsernameEditText)
         signUpEmailEditText = findViewById(R.id.signUpEmailEditText)
         signUpPasswordEditText = findViewById(R.id.signUpPasswordEditText)
 
+        signUpButtonCircleImageView.setOnClickListener(this)
+
         /*
 
-            Here all messages are being centered so they can be used
-            in toast messages and not look weird.
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+                           Messages
+
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+            0. Invalid credential input
+            1. Invalid username input
+            2. Invalid email input
+            3. Invalid password input
+            4. Signed up successfully
+            5. Weak password exception
+            6. User collision exception
+            7. Network exception
+
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
          */
 
-        messageInvalidCredentialsRaw = getString(R.string.zorion_invalid_credentials)
-        messageInvalidCredentials = SpannableString(messageInvalidCredentialsRaw)
-        messageInvalidCredentials.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageInvalidCredentialsRaw.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-
-        messageInvalidUsernameRaw = getString(R.string.zorion_invalid_username)
-        messageInvalidUsername = SpannableString(messageInvalidUsernameRaw)
-        messageInvalidUsername.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageInvalidUsernameRaw.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-
-        messageInvalidEmailRaw = getString(R.string.zorion_invalid_email)
-        messageInvalidEmail = SpannableString(messageInvalidEmailRaw)
-        messageInvalidEmail.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageInvalidEmailRaw.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-
-        messageInvalidPasswordRaw = getString(R.string.zorion_invalid_password)
-        messageInvalidPassword = SpannableString(messageInvalidPasswordRaw)
-        messageInvalidPassword.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageInvalidPasswordRaw.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-
-        messageSuccessfulSignUpRaw = getString(R.string.zorion_successful_sign_up)
-        messageSuccessfulSignUp = SpannableString(messageSuccessfulSignUpRaw)
-        messageSuccessfulSignUp.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageSuccessfulSignUpRaw.length -1, Spannable.SPAN_INCLUSIVE_INCLUSIVE )
-
-        messageWeakPasswordExceptionRaw = getString(R.string.zorion_weak_password_exception)
-        messageWeakPasswordException = SpannableString(messageWeakPasswordExceptionRaw)
-        messageWeakPasswordException.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageWeakPasswordExceptionRaw.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-
-        messageUserCollisionExceptionRaw = getString(R.string.zorion_user_collision_exception)
-        messageUserCollisionException = SpannableString(messageUserCollisionExceptionRaw)
-        messageUserCollisionException.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageUserCollisionExceptionRaw.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-
-        messageNetworkExceptionRaw = getString(R.string.zorion_network_exception)
-        messageNetworkException = SpannableString(messageNetworkExceptionRaw)
-        messageNetworkException.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, messageNetworkExceptionRaw.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-
-        signUpButtonCircleImageView.setOnClickListener(this)
+        messageStrings = listOf(getString(R.string.authentication_message_invalid_credentials), getString(R.string.authentication_message_invalid_username), getString(R.string.authentication_message_invalid_email), getString(R.string.authentication_message_invalid_password), getString(R.string.authentication_message_successful_sign_up), getString(R.string.authentication_exception_weak_password), getString(R.string.authentication_exception_user_collision), getString(R.string.authentication_exception_network))
 
     }
-
-    /*
-
-        Handle the onBackPressed event, this will direct the user to
-        the correct view based on what their previous and current view is.
-
-     */
 
     override fun onBackPressed() {
 
         when (intentExtras.getString("FROM_ACTIVITY")) {
 
-            "LANDING" -> {
+            else -> {
 
                 val viewLanding = Intent(this, Landing::class.java)
-
-                viewLanding.putExtra("FROM_ACTIVITY", "SIGN_UP")
-                viewLanding.putExtra("TO_ACTIVITY", "LANDING")
-
                 startActivity(viewLanding)
 
             }
@@ -157,13 +80,6 @@ class Signup : AppCompatActivity(), View.OnClickListener {
         }
 
     }
-
-    /*
-
-        Handle all onClick events, those are assigned in the
-        onCreate function
-
-     */
 
     override fun onClick(v: View?) {
 
@@ -175,134 +91,86 @@ class Signup : AppCompatActivity(), View.OnClickListener {
                 val stringInputEmail = signUpEmailEditText.text.toString().trim()
                 val stringInputPassword = signUpPasswordEditText.text.toString().trim()
 
-                /*
-
-                    In here a bunch of checks take place to make sure
-                    all the data the user entered is valid and / or not empty:
-
-                    * username -> empty
-                    * email -> empty, a string that does not match an email address
-                    * password -> empty
-
-                 */
+                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_loading)
+                signUpButtonCircleImageView.isEnabled = false
 
                 if (stringInputUsername.isEmpty() && stringInputEmail.isEmpty() && stringInputPassword.isEmpty()) {
 
-                    Toast.makeText(this, messageInvalidCredentials, Toast.LENGTH_SHORT).show()
+                    signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
+                    signUpButtonCircleImageView.isEnabled = true
+
+                    Toast.makeText(this, messageStrings[0], Toast.LENGTH_SHORT).show()
                     return
 
                 }
 
                 if (stringInputUsername.isEmpty()) {
 
-                    Toast.makeText(this, messageInvalidUsername, Toast.LENGTH_SHORT).show()
+                    signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
+                    signUpButtonCircleImageView.isEnabled = true
+
+                    Toast.makeText(this, messageStrings[1], Toast.LENGTH_SHORT).show()
                     return
 
                 }
 
                 if (stringInputEmail.isEmpty()  || !Patterns.EMAIL_ADDRESS.matcher(stringInputEmail).matches()) {
 
-                    Toast.makeText(this, messageInvalidEmail, Toast.LENGTH_SHORT).show()
+                    signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
+                    signUpButtonCircleImageView.isEnabled = true
+
+                    Toast.makeText(this, messageStrings[2], Toast.LENGTH_SHORT).show()
                     return
 
                 }
 
                 if (stringInputPassword.isEmpty()) {
 
-                    Toast.makeText(this, messageInvalidPassword, Toast.LENGTH_SHORT).show()
+                    signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
+                    signUpButtonCircleImageView.isEnabled = true
+
+                    Toast.makeText(this, messageStrings[3], Toast.LENGTH_SHORT).show()
                     return
 
                 }
 
-                /*
+                firebaseAuth.createUserWithEmailAndPassword(stringInputEmail, stringInputPassword).addOnCompleteListener { taskCreate ->
 
-                    Zorion connects to the firebase authentication service to create
-                    an account with the given credentials
+                    if (taskCreate.isSuccessful) {
 
-                    If for some reason, there's an issue with signing up the user,
-                    an exception will be thrown:
+                        Toast.makeText(this, messageStrings[4], Toast.LENGTH_SHORT).show()
 
-                        * weak password exception
-                        * user collision exception
-                        * network exception
+                        firebaseAuth.signInWithEmailAndPassword(stringInputEmail, stringInputPassword).addOnCompleteListener { taskSignIn ->
 
-                 */
-
-                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
-                signUpButtonCircleImageView.isEnabled = false
-
-                firebaseAuth.createUserWithEmailAndPassword(stringInputEmail, stringInputPassword).addOnCompleteListener { createAccountTask ->
-
-                    if (createAccountTask.isSuccessful) {
-
-                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_arrow)
-
-                        Toast.makeText(this, messageSuccessfulSignUp, Toast.LENGTH_SHORT).show()
-
-                        /*
-
-                            Once the sign up task has been completed, Zorion will temporarily sign the user in
-                            to apply a profile update to initialize the displayname (or username).
-
-                            If for some reason, there's an issue with signing up the user,
-                            an exception will be thrown:
-
-                                * network exception
-
-                         */
-
-                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
-
-                        firebaseAuth.signInWithEmailAndPassword(stringInputEmail, stringInputPassword).addOnCompleteListener { signInTask ->
-
-                            if (signInTask.isSuccessful) {
-
-                                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_arrow)
+                            if (taskSignIn.isSuccessful) {
 
                                 val currentlySignedInUser = firebaseAuth.currentUser!!
                                 val profileChangeRequest = UserProfileChangeRequest.Builder().setDisplayName(stringInputUsername).build()
 
-                                /*
-
-                                    Final step of the sign up process where the profile will be updated
-                                    with the username and the user will be signed out (even if it fails, security reasons).
-
-                                    If for some reason, there's an issue with updating the
-                                    user profile, an exception will be thrown:
-
-                                        * network exception
-
-                                */
-
-                                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
-
-                                currentlySignedInUser.updateProfile(profileChangeRequest).addOnCompleteListener { updateProfileTask ->
+                                currentlySignedInUser.updateProfile(profileChangeRequest).addOnCompleteListener { taskUpdate ->
 
                                     firebaseAuth.signOut()
 
-                                    if (updateProfileTask.isSuccessful) {
+                                    if (taskUpdate.isSuccessful) {
 
-                                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_arrow)
+                                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
+                                        signUpButtonCircleImageView.isEnabled = true
 
                                         val authenticationSignIn = Intent(this, Signin::class.java)
-
-                                        authenticationSignIn.putExtra("FROM_ACTIVITY", "SIGN_UP")
-                                        authenticationSignIn.putExtra("TO_ACTIVITY", "SIGN_IN")
-
                                         startActivity(authenticationSignIn)
 
                                     } else {
 
-                                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
+                                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
                                         signUpButtonCircleImageView.isEnabled = true
 
                                         try {
 
-                                            throw signInTask.exception!!
+                                            throw taskSignIn.exception!!
 
-                                        } catch (webException : FirebaseNetworkException) {
+                                        } catch (exceptionNetwork : FirebaseNetworkException) {
 
-                                            Toast.makeText(this, messageNetworkException, Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(this, messageStrings[7], Toast.LENGTH_SHORT).show()
 
                                         }
 
@@ -312,16 +180,16 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                             } else {
 
-                                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
+                                signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
                                 signUpButtonCircleImageView.isEnabled = true
 
                                 try {
 
-                                    throw signInTask.exception!!
+                                    throw taskSignIn.exception!!
 
-                                } catch (webException : FirebaseNetworkException) {
+                                } catch (exceptionNetwork : FirebaseNetworkException) {
 
-                                    Toast.makeText(this, messageNetworkException, Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, messageStrings[7], Toast.LENGTH_SHORT).show()
 
                                 }
 
@@ -331,24 +199,24 @@ class Signup : AppCompatActivity(), View.OnClickListener {
 
                     } else {
 
-                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_loading)
+                        signUpButtonCircleImageView.setImageResource(R.drawable.authentication_icon_arrow)
                         signUpButtonCircleImageView.isEnabled = true
 
                         try {
 
-                            throw createAccountTask.exception!!
+                            throw taskCreate.exception!!
 
-                        } catch (weakPasswordException : FirebaseAuthWeakPasswordException) {
+                        } catch (exceptionWeakPassword : FirebaseAuthWeakPasswordException) {
 
-                            Toast.makeText(this, messageWeakPasswordException, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, messageStrings[5], Toast.LENGTH_SHORT).show()
 
-                        } catch (userExists : FirebaseAuthUserCollisionException) {
+                        } catch (exceptionUserCollision : FirebaseAuthUserCollisionException) {
 
-                            Toast.makeText(this, messageUserCollisionException, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, messageStrings[6], Toast.LENGTH_SHORT).show()
 
-                        } catch (webException : FirebaseNetworkException) {
+                        } catch (exceptionNetwork : FirebaseNetworkException) {
 
-                            Toast.makeText(this, messageNetworkException, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, messageStrings[7], Toast.LENGTH_SHORT).show()
 
                         }
 

@@ -4,27 +4,48 @@
 
     <string name="app_name"><b>Zorion</b></string>
 
-    <!-- Authentication button and title strings -->
+    <!-- Authentication main text -->
 
-    <string name="zorion_sign_in">Sign In</string>
-    <string name="zorion_sign_up">Sign Up</string>
+    <string name="authentication_sign_in">Sign In</string>
+    <string name="authentication_sign_up">Sign Up</string>
 
-    <!-- Authentication input field hint strings -->
+    <!-- Authentication hints -->
 
-    <string name="zorion_username">Username</string>
-    <string name="zorion_e_mail">E-mail</string>
-    <string name="zorion_password">Password</string>
+    <string name="authentication_hint_username">Username</string>
+    <string name="authentication_hint_email">E-mail</string>
+    <string name="authentication_hint_password">Password</string>
 
-    <!-- Authentication messages -->
+    <!-- Authentication UI strings -->
 
-    <string name="zorion_invalid_username">Sorry, but the username you entered is invalid.</string>
-    <string name="zorion_invalid_email">Sorry, but the email you entered is invalid.</string>
-    <string name="zorion_invalid_password">Sorry, but the password you entered is invalid.</string>
+    <string name="authentication_string_forgot_password"><u>Forgot password</u></string>
 
-    <string name="zorion_successful_sign_up">Successfully created a new account, redirecting you to the sign in page.</string>
-    <string name="zorion_weak_password_exception">Sorry, but the entered password is not strong enough.</string>
-    <string name="zorion_user_collision_exception">This user already exists.</string>
+    <!-- Authentication toast messages -->
 
-    <string name="zorion_network_exception">Couldn\'t connect to the servers, try again later.</string>
+    <string name="authentication_message_invalid_credentials">Sorry, but the credentials you entered are invalid.</string>
+    <string name="authentication_message_invalid_username">Sorry, but the username you entered is invalid.</string>
+    <string name="authentication_message_invalid_email">Sorry, but the email you entered is invalid.</string>
+    <string name="authentication_message_invalid_password">Sorry, but the password you entered is invalid.</string>
+    <string name="authentication_message_successful_sign_up">Successfully created a new account, redirecting you to the sign in page.</string>
+    <string name="authentication_message_successful_sign_in">Successfully signed you in, redirecting you to your profile.</string>
+    <string name="authentication_message_password_reset_email">Sent a password reset email, check your inbox.</string>
+
+    <!-- Authentication exceptions toast messages -->
+
+    <string name="authentication_exception_weak_password">Sorry, but the entered password is not strong enough.</string>
+    <string name="authentication_exception_user_collision">This email already belongs to another user.</string>
+    <string name="authentication_exception_incorrect_credentials">Sorry, but the credentials you entered are incorrect.</string>
+    <string name="authentication_exception_invalid_user">This email does not belong to an account.</string>
+    <string name="authentication_exception_network">Couldn\'t connect to the servers, try again later.</string>
+    <string name="empty" />
+
+    <!-- Profile UI strings -->
+
+    <string name="profile_title_username"><b>Username</b></string>
+    <string name="profile_title_email"><b>Email</b></string>
+
+    <!-- Authentication toast messages -->
+
+    <string name="profile_message_username_changed">Successfully updated your username.</string>
+    <string name="profile_message_email_changed">Successfully updated your email.</string>
 
 </resources>

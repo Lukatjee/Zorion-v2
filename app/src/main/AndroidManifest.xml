@@ -4,12 +4,14 @@
 
     <application
         android:allowBackup="true"
+        android:configChanges="screenSize|orientation"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Zorion">
-        <activity android:name=".authentication.Profile"></activity>
+        <activity android:name=".views.Chat"></activity>
+        <activity android:name=".authentication.Profile" />
         <activity android:name=".authentication.Signup" />
         <activity android:name=".authentication.Signin" />
         <activity android:name=".views.Landing">
@@ -19,6 +21,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
     </application>
 
 </manifest>

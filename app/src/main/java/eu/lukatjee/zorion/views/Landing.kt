@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import eu.lukatjee.zorion.R
 import eu.lukatjee.zorion.authentication.Signin
 import eu.lukatjee.zorion.authentication.Signup
+import java.lang.NullPointerException
 
 class Landing : AppCompatActivity(), View.OnClickListener {
 
@@ -18,15 +22,18 @@ class Landing : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+        FirebaseApp.initializeApp(/*context=*/ this)
+        val firebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance())
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing)
 
         intent.putExtra("FROM_ACTIVITY", "NONE")
+        intentExtras = intent.extras!!
 
         signInButton = findViewById(R.id.landingSignInButton)
         signUpButton = findViewById(R.id.landingSignUpButton)
-
-        intentExtras = intent.extras!!
 
         signInButton.setOnClickListener(this)
         signUpButton.setOnClickListener(this)

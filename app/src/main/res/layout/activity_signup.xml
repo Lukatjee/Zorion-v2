@@ -30,8 +30,6 @@
 
             >
 
-            <!-- Sign in title display using '@drawable/authentication_title.xml' and '@font/bubbler' for design -->
-
             <TextView
 
                 android:id="@+id/signUpTextView"
@@ -40,17 +38,15 @@
 
                 android:gravity="center_horizontal"
 
-                android:text="@string/zorion_sign_up"
+                android:text="@string/authentication_sign_up"
                 android:textSize="64sp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:fontFamily="@font/bubbler"
 
-                android:background="@drawable/authentication_title"
+                android:background="@drawable/authentication_model_title"
 
                 />
-
-            <!-- Username input using '@drawable/authentication_input', '@drawable/authentication_username' and '@font/asap' for design -->
 
             <EditText
 
@@ -62,24 +58,22 @@
 
                 android:layout_gravity="center_horizontal"
 
-                android:drawableStart="@drawable/authentication_username"
+                android:drawableStart="@drawable/authentication_icon_username"
                 android:drawablePadding="5dp"
 
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:fontFamily="@font/asap"
 
-                android:hint="@string/zorion_username"
+                android:hint="@string/authentication_hint_username"
                 android:autofillHints=" "
                 android:textColorHint="@color/zorionLighterGray"
                 android:inputType="text"
                 android:maxLength="16"
 
-                android:background="@drawable/authentication_input"
+                android:background="@drawable/authentication_model_input"
 
                 />
-
-            <!-- Email input using '@drawable/authentication_input', '@drawable/authentication_email' and '@font/asap' for design -->
 
             <EditText
 
@@ -91,24 +85,22 @@
 
                 android:layout_gravity="center_horizontal"
 
-                android:drawableStart="@drawable/authentication_email"
+                android:drawableStart="@drawable/authentication_icon_email"
                 android:drawablePadding="5dp"
 
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:fontFamily="@font/asap"
 
-                android:hint="@string/zorion_e_mail"
+                android:hint="@string/authentication_hint_email"
                 android:autofillHints=" "
                 android:textColorHint="@color/zorionLighterGray"
                 android:inputType="textEmailAddress"
                 android:maxLength="32"
 
-                android:background="@drawable/authentication_input"
+                android:background="@drawable/authentication_model_input"
 
                 />
-
-            <!-- Password input using '@drawable/authentication_input', '@drawable/authentication_password' and '@font/asap' for design -->
 
             <EditText
 
@@ -120,24 +112,22 @@
 
                 android:layout_gravity="center_horizontal"
 
-                android:drawableStart="@drawable/authentication_password"
+                android:drawableStart="@drawable/authentication_icon_password"
                 android:drawablePadding="5dp"
 
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:fontFamily="@font/asap"
 
-                android:hint="@string/zorion_password"
+                android:hint="@string/authentication_hint_password"
                 android:autofillHints=" "
                 android:textColorHint="@color/zorionLighterGray"
                 android:inputType="textPassword"
                 android:maxLength="32"
 
-                android:background="@drawable/authentication_input"
+                android:background="@drawable/authentication_model_input"
 
                 />
-
-            <!-- Sign up button using '@drawable/authentication_button' and '@drawable/authentication_arrow' for design -->
 
             <de.hdodenhof.circleimageview.CircleImageView
 
@@ -149,8 +139,8 @@
 
                 android:layout_gravity="center_horizontal"
 
-                android:src="@drawable/authentication_arrow"
-                android:background="@drawable/authentication_button"
+                android:src="@drawable/authentication_icon_arrow"
+                android:background="@drawable/authentication_model_button"
 
                 />
 

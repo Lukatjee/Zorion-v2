@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.Chat"
+
+    android:background="@color/zorionGray"
+
+    >
+
+    <LinearLayout
+
+        android:id="@+id/chatMainLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/chatRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+
+            tools:listitem="@layout/chat_model_recyclerview_item"
+
+            />
+
+        <LinearLayout
+
+            android:id="@+id/chatControlsLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+
+                android:id="@+id/chatProfileButtonImageView"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginVertical="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:padding="5dp"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:background="@drawable/chat_model_profile_button"
+                android:src="@drawable/authentication_icon_username"
+
+                android:contentDescription="@string/empty"
+
+                />
+
+            <EditText
+
+                android:id="@+id/chatInputFieldEditText"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_marginVertical="15dp"
+                android:paddingHorizontal="20dp"
+
+                android:layout_weight="1"
+
+                android:hint="@string/chat_hint_basic_instruction"
+                android:autofillHints=" "
+                android:textColorHint="@color/zorionLighterGray"
+                android:textSize="16sp"
+                android:inputType="text"
+                android:fontFamily="@font/asap"
+
+                android:background="@drawable/chat_model_input"
+
+                />
+
+            <ImageView
+
+                android:id="@+id/chatSendButtonImageView"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginVertical="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:background="@drawable/chat_model_profile_button"
+                android:src="@drawable/chat_icon_send"
+
+                android:contentDescription="@string/empty"
+
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

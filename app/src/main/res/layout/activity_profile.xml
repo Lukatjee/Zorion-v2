@@ -1,14 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".authentication.Profile"
-
     android:background="@color/zorionGray"
 
     >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/profileMainLinearLayout"
+        android:layout_marginVertical="15dp"
+
+        android:text="@string/profile_my_profile"
+        android:fontFamily="@font/bubbler"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="64sp"
+
+        android:background="@drawable/profile_model_title"
+
+        />
+
+    <LinearLayout
+
+        android:id="@+id/profileMainLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:orientation="vertical"
+
+        >
+
+        <LinearLayout
+
+            android:id="@+id/profileUserdataLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+
+            android:background="@drawable/profile_model_userdata_background"
+
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+
+                android:id="@+id/profilePictureCircleImageView"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:padding="15dp"
+
+                android:clickable="false"
+                android:src="@drawable/profile_profile_picture_placeholder"
+
+                />
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+
+                >
+
+                <TextView
+
+                    android:id="@+id/profileUserdataUsernameTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/profile_title_username"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/asap"
+                    android:textColor="@color/zorionLighterGray"
+
+                    />
+
+                <TextView
+
+                    android:id="@+id/profileUserdataUsernameDisplayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+
+                    android:enabled="false"
+                    android:focusableInTouchMode="true"
+
+                    android:fontFamily="@font/asap"
+                    android:inputType="text"
+                    android:maxLength="16"
+                    android:textColor="@color/zorionLighterGray"
+
+                    tools:ignore="TextViewEdits"
+
+                    />
+
+                <TextView
+
+                    android:id="@+id/profileUserdataEmailTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/profile_title_email"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/asap"
+                    android:textColor="@color/zorionLighterGray"
+
+                    />
+
+                <TextView
+
+                    android:id="@+id/profileUserdataEmailDisplayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:scrollbars="vertical"
+
+                    android:enabled="false"
+                    android:focusableInTouchMode="true"
+
+                    android:fontFamily="@font/asap"
+                    android:maxLines="1"
+                    android:maxLength="32"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/zorionLighterGray"
+
+                    tools:ignore="TextViewEdits"
+
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:background="@drawable/profile_model_buttons_background"
+
+            >
+
+            <ImageView
+
+                android:id="@+id/profileButtonEditCircleImageView"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:padding="10dp"
+
+                android:layout_weight="1"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:background="@drawable/profile_model_button_start"
+                android:src="@drawable/profile_icon_edit"
+
+                android:contentDescription="@string/empty"
+
+                />
+
+            <ImageView
+
+                android:id="@+id/profileButtonChatCircleImageView"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:padding="10dp"
+
+                android:layout_weight="1"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:background="@drawable/profile_model_button_center"
+                android:src="@drawable/profile_icon_chat"
+
+                android:contentDescription="@string/empty"
+
+                />
+
+            <ImageView
+
+                android:id="@+id/profileButtonLogoutCircleImageView"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:padding="10dp"
+
+                android:layout_weight="1"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:background="@drawable/profile_model_button_end"
+                android:src="@drawable/profile_icon_logout"
+
+                android:contentDescription="@string/empty"
+
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

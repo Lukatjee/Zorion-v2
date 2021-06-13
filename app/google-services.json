@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1011832460402",
+    "firebase_url": "https://zorion-9bec0-default-rtdb.firebaseio.com",
     "project_id": "zorion-9bec0",
     "storage_bucket": "zorion-9bec0.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1011832460402-edadtco9njlnm5riu7m63pc9cir5sj8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.lukatjee.zorion",
+            "certificate_hash": "fbf5f6ce98d42f9e517833e2da63c4a852796c9c"
+          }
+        },
         {
           "client_id": "1011832460402-pnel0fpdu29js80kr6b8cl89nh0vi117.apps.googleusercontent.com",
           "client_type": 3
